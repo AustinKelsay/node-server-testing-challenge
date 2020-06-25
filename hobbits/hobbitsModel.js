@@ -11,7 +11,6 @@ function get() {
     return db("hobbits");
 }
 
-
 function getById(id) {
     return db('hobbits').where({ id }).first();
 }

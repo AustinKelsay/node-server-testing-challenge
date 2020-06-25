@@ -1,4 +1,5 @@
 // Update with your config settings.
+require('dotenv').config();
 
 module.exports = {
 
@@ -14,6 +15,19 @@ module.exports = {
     seeds: {
       directory: "./data/seeds"
     }
-  }
+  },
 
+  testing: {
+    client: 'sqlite3',
+    connection: {
+      filename: ':memory:',
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './data/migrations',
+    },
+    seeds: {
+      directory: './data/seeds',
+    }
+  }
 };

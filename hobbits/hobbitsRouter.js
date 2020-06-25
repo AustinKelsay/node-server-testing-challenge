@@ -24,4 +24,18 @@ router.post("/", (req, res) => {
       res.status(500).json(error.message);
     });
 });
+
+router.delete('/:id', (req, res) => {
+  const id = req.params.id;
+  Hobbits.remove(id)
+    .then((response) => {
+      console.log(response);
+      if (response === undefined) {
+        res.status(404).json({
+            message: "The hobbit with the specified ID does not exist.",
+        })
+      }
+      else res.status(200).json(response)
+    })
+})
 module.exports = router;
